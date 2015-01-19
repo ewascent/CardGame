@@ -7,81 +7,26 @@ using System.Threading.Tasks;
 namespace CardGame
 {
 
-    //Create a helper class to simplify the creation of a list of tuples.
-    //Each card will be represented as a tuple and the list will represent the deck
-    public class TupleList<T1, T2, T3, T4> : List<Tuple<T1, T2, T3, T4>>
-    {
-        public void Add(T1 item1, T2 item2, T3 item3, T4 item4)
-        {
-            Add(new Tuple<T1, T2, T3, T4>(item1, item2,item3,item4));
-        }
-    }
-    
-    
-    
     public class ManageDeck
     {
-        List<string> suitType = new List<string>();
-        List<string> cardType = new List<string>();
-        TupleList<string, string, byte, byte?> deck = new TupleList<string,string,byte,byte?>();
-
-        //byte is an economical numeric datatype that stores values up to 32,767
+             //byte is an economical numeric datatype that stores values up to 32,767
         //alternateWeight is usually null adn is deisgned for card games that allow one card to have two values like the ace in blackjack
-        public string addCards(string cardVal, string suitVal, byte weight, byte? alternateWeight)
+        public Array makeDeck(out Array decker)
         {
-            var format = new FormatException();
-
-            try
-            {
-                suitType.Add("Club");
-                suitType.Add("Diamond");
-                suitType.Add("Heart");
-                suitType.Add("Spade");
-
-                cardType.Add("Ace");
-                cardType.Add("King");
-                cardType.Add("Queen");
-                cardType.Add("Jack");
-                cardType.Add("10");
-                cardType.Add("9");
-                cardType.Add("8");
-                cardType.Add("7");
-                cardType.Add("6");
-                cardType.Add("5");
-                cardType.Add("4");
-                cardType.Add("3");
-                cardType.Add("2");
-
-                if (cardType.Contains(cardVal))
-                {
-                    if (suitType.Contains(suitVal))
-                    {
-                        deck.Add(cardVal, suitVal, weight, alternateWeight);
-                        return "Eric does not know how to return a tuplelist";
-                    }
-
-                    else throw format;
-                }
-                else throw format;
-            }
-            catch
-            {
-                throw format;
-                //return "Exception 100: Card could not be added";
-            }
-
-
+            string[] deck = new string[] { "AC", "AD", "AH", "AS", "KC", "KD", "KH", "KS", "QC", "QD", "QH", "QS", "JC", "JD", "JH", "JS", "10C", "10D", "10H", "10S", "9C", "9D", "9H", "9S", "8C", "8D", "8H", "8S", "7C", "7D", "7H", "7S", "6C", "6D", "6H", "6S", "5C", "5D", "5H", "5S", "4C", "4D", "4H", "4S", "3C", "3D", "3H", "3S", "2C", "2D", "2H", "2S", };
+            decker = deck;
+            return decker;
         }
 
-        public void checkDeck() 
-        { 
-        }
 
-        public void shuffleDeck(int CardCount)
+        public int shuffle(int CardCount)
         {
+            //http://blog.codinghorror.com/shuffling/
+            var cards = Enumerable.Range(0, 51);
+            var shuffledcards = cards.OrderBy(a => Guid.NewGuid());
 
+            return 1;
             
-            Console.WriteLine("I am dead to the world. fix me");
         }
 
 
