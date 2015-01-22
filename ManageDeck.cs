@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace CardGame
+
 {
     //Create a helper class to simplify the creation of a list of tuples.
     //Each card will be represented as a tuple and the list will represent the deck
@@ -18,12 +20,14 @@ namespace CardGame
     {
         List<string> suitType = new List<string>();
         List<string> cardType = new List<string>();
-        TupleList<byte,string, string, byte, byte?> deck = new TupleList<byte,string, string, byte, byte?>();
+        public TupleList<byte,string, string, byte, byte?> deck = new TupleList<byte,string, string, byte, byte?>();
+
         //byte is an economical numeric datatype that stores values up to 32,767
         //alternateWeight is usually null adn is deisgned for card games that allow one card to have two values like the ace in blackjack
         public string addCards(byte sortOrder,string cardVal, string suitVal, byte weight, byte? alternateWeight)
         {
-            var format = new FormatException();
+            var format = new ArgumentException("Use a conventional card and suit.");
+
             try
             {
                 suitType.Add("Clubs");
