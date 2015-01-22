@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CardDeck.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="ManageDeck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
